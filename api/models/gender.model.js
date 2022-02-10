@@ -1,6 +1,6 @@
-import { BaseModel } from "./baseModel.model.js";
-
-export class Gender extends BaseModel{
+// import { BaseModel } from "./baseModel.model.js";
+const BaseModel = require("./baseModel.model");
+class Gender extends BaseModel{
 
     constructor(props){
         super(props);
@@ -13,3 +13,5 @@ export class Gender extends BaseModel{
     image = "";
 
 }
+
+module.exports =Gender;

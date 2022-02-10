@@ -1,4 +1,4 @@
-export class BaseModel{
+class BaseModel{
 
     id = 0;
     
@@ -79,3 +79,4 @@ export class BaseModel{
 
     
 }
+module.exports = BaseModel;

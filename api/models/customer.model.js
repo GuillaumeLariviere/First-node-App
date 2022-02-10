@@ -1,6 +1,7 @@
-import { BaseModel } from "./baseModel.model.js";
+// import { BaseModel } from "./baseModel.model.js";
+const BaseModel = require("./baseModel.model");
 
-export class Customer extends BaseModel{
+class Customer extends BaseModel{
 
     constructor(props){
         super(props);
@@ -13,3 +14,4 @@ export class Customer extends BaseModel{
     email = "";
 
 }
+module.exports = Customer;
