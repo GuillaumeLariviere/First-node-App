@@ -1,5 +1,6 @@
 const express = require("express");
-const router = express.Router();
+const routers = require('./api/routers');
+console.log('routers')
 
 const app = express();
 
@@ -9,26 +10,12 @@ const corsOption ={
 };
 app.use(cors(corsOption));
 
-app.use(router);
+app.use(express.json());
 
-router.route("/")
-.get((req, res) =>{
-    console.log("GET /");
-    res.send((req.method + req.path));
-})
-.post((req ,res)=>{
-    res.send((req.method + req.path));
-});
+for(const route in routers){
+    app.use(`/${route}`, new routers[route]().router);
+}
 
-router.route("/test").get((req, res) => {
-    res.send((req.method + req.path));
-});
-
-router.route("/contactscreen").get((req, res) => {
-    console.log((req.method + req.path));
-    res.send("ok");
-    
-});
 const PORT =5000;
 app.listen(PORT, ()=>{
     console.log(`Server is running on port ${PORT}.`);
