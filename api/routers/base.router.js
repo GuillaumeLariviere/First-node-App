@@ -27,8 +27,10 @@ class BaseRouter{
         })
 
         
-        this.router.post('/',(req, res) => {
-            res.send(`create new ${this.table} row with values : ${JSON.stringify(req.body)}`);
+        this.router.post('/', async (req, res) => {
+            // res.send(`create new ${this.table} row with values : ${JSON.stringify(req.body)}`);
+            const data = await this.controller.insertOne(req.body);
+            res.send(data)
         })
         
         this.router.put('/:id',(req, res) => {

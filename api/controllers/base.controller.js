@@ -21,6 +21,10 @@ class BaseController {
         const result = await this.service.getOne(id);
         return result;
     }
+    insertOne = async (fields) =>{
+        const result = await this.service.insertOne(fields);
+        return result;
+    }
     
 
 }

@@ -45,16 +45,22 @@ class BaseService {
         return rows.length == 1 ? rows.pop() : null
     }
 
-    // insertOne = async (fields) =>{
-    //     let columns ="";
-    //     let values ="";
+    insertOne = async (fields) =>{
+        let columns ="";
+        let values ="";
 
-    //     fields.forEach( key => {
-            
-    //     });
+        for (let key in fields){
+            columns += key +",";
+            values += fields[key]+",";
+        }
 
-    //     const sql =`INSERT INTO ${this.table}(${columns}) VALUES (${values})`
-    // }
+        columns = columns.substring(0,columns.length-1);
+        values = values.substring(0,values.length-1);
+
+        const sql =`INSERT INTO ${this.table} (${columns}) VALUES (${values})`;
+        const rows = await BaseService.#query(sql);
+        return rows;
+    }
 
 }
 
