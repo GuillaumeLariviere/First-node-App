@@ -33,16 +33,19 @@ class BaseRouter{
             res.send(data)
         })
         
-        this.router.put('/:id',(req, res) => {
-            res.send(`update ${this.table} row with id=${req.params.id} with values : ${JSON.stringify(req.body)}`);
+        this.router.put('/:id',async (req, res) => {
+            const data = await this.controller.updateOne(req.params.id,req.body);
+            res.send(data)
         })
         
-        this.router.patch('/:id',(req, res) => {
-            res.send(`soft delete ${this.table} row with id=${req.params.id}`);
+        this.router.patch('/:id',async (req, res) => {
+            const data = await this.controller.softDeleted(req.params.id);
+            res.send(data)
         })
         
-        this.router.delete('/:id',(req, res) => {
-            res.send(`hard delete ${this.table} row with id=${req.params.id}`);
+        this.router.delete('/:id',async (req, res) => {
+            const data = await this.controller.hardDeleted(req.params.id);
+            res.send(data)
         })
     }
     

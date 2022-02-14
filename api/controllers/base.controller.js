@@ -25,7 +25,20 @@ class BaseController {
         const result = await this.service.insertOne(fields);
         return result;
     }
-    
+
+    updateOne = async(id, fields)=>{
+        const result = await this.service.updateOne(id, fields);
+        return result;
+    }
+
+    softDeleted = async(id)=>{
+        const result = await this.service.softDeleted(id);
+        return result;
+    }
+    hardDeleted = async(id)=>{
+        const result = await this.service.hardDeleted(id);
+        return result;
+    }
 
 }
 

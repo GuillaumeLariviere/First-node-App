@@ -51,7 +51,7 @@ class BaseService {
 
         for (let key in fields){
             columns += key+",";
-            values += `'${fields[key]}'`+",";
+            values += `'${fields[key]}',`;
         }
 
         columns = columns.substring(0,columns.length-1);
@@ -60,6 +60,30 @@ class BaseService {
         const sql =`INSERT INTO ${this.table} (${columns}) VALUES (${values})`;
         const rows = await BaseService.#query(sql);
         return rows;
+    }
+
+    updateOne = async (id , fields) =>{
+        let set ="";
+        for (let key in fields){
+            set += `${key}='${fields[key]}',`;
+        }
+        set = set.substring(0,set.length-1);
+        const sql =`UPDATE ${this.table} SET ${set} WHERE id=${id}`;
+        const row = await BaseService.#query(sql);
+        return row;
+    }
+
+    softDeleted = async(id)=>{
+        const sql =`UPDATE ${this.table} SET deleted="1" WHERE id=${id}`;
+        const row = await BaseService.#query(sql);
+        return "Soft deleted complited";
+    }
+
+    hardDeleted =async (id)=>{
+        const sql =`DELETE FROM ${this.table} WHERE id=${id}`;
+        const row = await BaseService.#query(sql);
+
+        return "HardDeleted complite";
     }
 
 }
