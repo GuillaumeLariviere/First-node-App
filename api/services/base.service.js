@@ -50,14 +50,14 @@ class BaseService {
         let values ="";
 
         for (let key in fields){
-            columns += `'${key}'`+",";
+            columns += key+",";
             values += `'${fields[key]}'`+",";
         }
 
         columns = columns.substring(0,columns.length-1);
         values = values.substring(0,values.length-1);
 
-        const sql =`INSERT INTO '${this.table}' (${columns}) VALUES (${values})`;
+        const sql =`INSERT INTO ${this.table} (${columns}) VALUES (${values})`;
         const rows = await BaseService.#query(sql);
         return rows;
     }
