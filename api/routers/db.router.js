@@ -12,7 +12,7 @@ class DbRouter extends BaseRouter{
         // this.table = this.name.toLowerCase();
         // this.controller = new controllers[this.table]();
         super(false);
-        this.table =this.name.unCamilize();
+        this.table =this.name.unCamelize();
 
         this.initializeRoutes();
     }

@@ -5,25 +5,25 @@ class DbController extends BaseController {
     constructor(){
         super(false);
         
-        this.table = this.name.unCamilize();
-        const ServiceClass= require(`../services/${this.name.unCamilize()}.service`);
+        this.table = this.name.unCamelize();
+        const ServiceClass= require(`../services/${this.name.unCamelize()}.service`);
         this.service = new ServiceClass;
         this.initializeAction();
     }
 
     initializeAction=()=>{
-        getAll = async (params) => {
+        this.getAll = async (params) => {
 
             const result = await this.service.getAll(params);
             return result;
     
         }
     
-        getOne = async (id) => {
+        this.getOne = async (id) => {
             const result = await this.service.getOne(id);
             return result;
         }
-        insertOneOrMany = async (fields) =>{
+        this.insertOneOrMany = async (fields) =>{
             const result = await this.service.insertOneOrMany(fields);
             return result;
         }
@@ -33,16 +33,16 @@ class DbController extends BaseController {
         //     return result;
         // }
         
-        updateWhere =async(fields)=>{
+        this.updateWhere =async(fields)=>{
             const result = await this.service.update(fields);
             return result;
         }
     
-        softDeleted = async(id)=>{
+        this.softDeleted = async(id)=>{
             const result = await this.service.softDeleted(id);
             return result;
         }
-        hardDeleted = async(id)=>{
+        this.hardDeleted = async(id)=>{
             const result = await this.service.hardDeleted(id);
             return result;
         }

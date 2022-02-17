@@ -12,11 +12,11 @@ class BaseService {
     static #connect = () => {
         if (!BaseService.db) {
             BaseService.db = mysql.createPool({
-                host: dbConf.HOST,
+                host: dbConfig.HOST,
                 // port: dbConf.PORT,
-                user: dbConf.USER,
-                password: dbConf.PASS,
-                database: dbConf.NAME
+                user: dbConfig.USER,
+                password: dbConfig.PASS,
+                database: dbConfig.NAME
             });
         }
         return BaseService.db;

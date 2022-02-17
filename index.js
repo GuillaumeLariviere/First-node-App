@@ -11,7 +11,6 @@ app.use(cookieParser());
 const routers = require('./api/routers');
 
 const cors = require("cors");
-const { app_user } = require("./api/services");
 
 const corsOption ={
     origin :["http://localhost:3000"]
@@ -26,9 +25,9 @@ const config = require("./api/configs")("app");
 app.listen(config.PORT, ()=>{
     console.log(`Server is running on port ${config.PORT}.`);
 });
-app.use('*', (req,res)=> res.send(false));
+// app.use('*', (req,res)=> res.send(false));
 
-const PORT =5000;
-app.listen(PORT, ()=>{
-    console.log(`Server is running on port ${PORT}.`);
-});
+// const PORT =5000;
+// app.listen(PORT, ()=>{
+//     console.log(`Server is running on port ${PORT}.`);
+// });

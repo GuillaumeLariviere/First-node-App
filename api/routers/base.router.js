@@ -7,7 +7,7 @@ class BaseRouter {
     constructor(withRouteInitialization = true){
         this.router = expressRouter();
         this.name = this.constructor.name.replace(`Router`,``);
-        const ControllerClass = require(`../controllers/${this.name.unCamilize()}.controller`);
+        const ControllerClass = require(`../controllers/${this.name.unCamelize()}.controller`);
         this.controller = new ControllerClass();
         withRouteInitialization? this.initializeRoutes(): null;
     }

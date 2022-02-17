@@ -3,7 +3,7 @@ const BaseRouter = require("./base.router");
 // const Router = require('express').Router;
 
 
-class App_userRouter extends BaseRouter{
+class AuthRouter extends BaseRouter{
     
     // constructor(){
     //     this.router = Router();
@@ -23,4 +23,4 @@ class App_userRouter extends BaseRouter{
     // }
 }
 
-module.exports = App_userRouter;
+module.exports = AuthRouter;
