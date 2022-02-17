@@ -1,54 +1,30 @@
-const Router = require('express').Router;
-const controllers = require('../controllers');
+const {append} = require("express/lib/response");
 
-class BaseRouter{
+const expressRouter =require("express").Router;
 
-    constructor(){
-        this.router = Router();
-        this.name = this.constructor.name.replace(`Router`,``);
-        this.table = this.name.toLowerCase();
-        this.controller = new controllers[this.table]();
-
-        this.initializeRoutes();
-    }
-
-    initializeRoutes = () => {
-
-        // /category ou /gender
-        this.router.get('/', async (req, res) => {
-            const data = await this.controller.getAll();
-            res.send(data);
-        })
-        
-        // /category/1
-        this.router.get('/:id',async (req, res) => {
-            const data = await this.controller.getOne(req.params.id);
-            res.send(data);
-        })
-
-        
-        this.router.post('/', async (req, res) => {
-            // res.send(`create new ${this.table} row with values : ${JSON.stringify(req.body)}`);
-            const data = await this.controller.insertOne(req.body);
-            res.send(data)
-        })
-        
-        this.router.put('/:id',async (req, res) => {
-            const data = await this.controller.updateOne(req.params.id,req.body);
-            res.send(data)
-        })
-        
-        this.router.patch('/:id',async (req, res) => {
-            const data = await this.controller.softDeleted(req.params.id);
-            res.send(data)
-        })
-        
-        this.router.delete('/:id',async (req, res) => {
-            const data = await this.controller.hardDeleted(req.params.id);
-            res.send(data)
-        })
-    }
+class BaseRouter {
     
+    constructor(withRouteInitialization = true){
+        this.router = expressRouter();
+        this.name = this.constructor.name.replace(`Router`,``);
+        const ControllerClass = require(`../controllers/${this.name.unCamilize()}.controller`);
+        this.controller = new ControllerClass();
+        withRouteInitialization? this.initializeRoutes(): null;
+    }
+
+    initializeRoutes =()=>{
+        console.log(`init routes for ${this.name}`);
+
+        this.router.all("/:action",async (req,res)=>{
+            if(!this.controller[req.params.action]) res.status(400).json(null)
+
+            const response = await this.controller[req.params.action](req);
+            if(response.cookie){
+                res.cookie('auth',response.cookie, {maxAge:60*60*24});
+            }
+            res.status(response.status || 200).json(response.data);
+        });
+    }
 }
 
 module.exports = BaseRouter;

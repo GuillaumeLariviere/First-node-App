@@ -1,6 +1,6 @@
-const BaseRouter = require('./base.router');
+const DbRouter = require('./db.router');
 
-class ProductRouter extends BaseRouter{
+class ProductRouter extends DbRouter{
 
 }
 

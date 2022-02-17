@@ -1,6 +1,6 @@
-const BaseRouter = require('./base.router');
+const DbRouter = require('./db.router');
 
-class GenderRouter extends BaseRouter{
+class GenderRouter extends DbRouter{
 
 }
 

@@ -1,6 +1,6 @@
-const BaseController = require("./base.controller");
+const DbController = require("./db.controller");
 
-class ProductController extends BaseController{
+class ProductController extends DbController{
 
 }
 

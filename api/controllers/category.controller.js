@@ -1,6 +1,6 @@
-const BaseController = require("./base.controller");
+const DbController = require("./db.controller");
 
-class CategoryController extends BaseController{
+class CategoryController extends DbController{
 
 }
 

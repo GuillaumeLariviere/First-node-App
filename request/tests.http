@@ -1,11 +1,125 @@
 # POST http://localhost:5000/category
-# GET http://localhost:5000/test
+# GET http://localhost:5000/product
 
-# POST http://localhost:5000
-PUT http://localhost:5000/contact/1
+# POST http://localhost:5000/product
+# Content-Type: application/json
+
+# [
+# {"id":1,"title":"Chaussures","description":1,"price":3.03,"image":"https://picsum.photos/200","gender_id":4,"category_id":4},
+# {"id":2,"title":"Sous-vetements","description":2,"price":32.38,"image":"https://picsum.photos/200","gender_id":1,"category_id":5},
+# {"id":3,"title":"Chaussures","description":3,"price":84.45,"image":"https://picsum.photos/200","gender_id":4,"category_id":4},
+# {"id":4,"title":"Chaussures","description":4,"price":107.73,"image":"https://picsum.photos/200","gender_id":4,"category_id":4},
+# {"id":5,"title":"T-shirt","description":5,"price":153.37,"image":"https://picsum.photos/200","gender_id":2,"category_id":2},
+# {"id":6,"title":"Pulls","description":6,"price":152.42,"image":"https://picsum.photos/200","gender_id":4,"category_id":3},
+# {"id":7,"title":"Chaussures","description":7,"price":82.68,"image":"https://picsum.photos/200","gender_id":1,"category_id":4},
+# {"id":8,"title":"Pulls","description":8,"price":67.95,"image":"https://picsum.photos/200","gender_id":1,"category_id":3},
+# {"id":9,"title":"Accessoire","description":9,"price":132.87,"image":"https://picsum.photos/200","gender_id":2,"category_id":6},
+# {"id":10,"title":"T-shirt","description":10,"price":150.27,"image":"https://picsum.photos/200","gender_id":2,"category_id":2},
+# {"id":11,"title":"Sous-vetements","description":11,"price":104.84,"image":"https://picsum.photos/200","gender_id":3,"category_id":5},
+# {"id":12,"title":"Sous-vetements","description":12,"price":87.51,"image":"https://picsum.photos/200","gender_id":2,"category_id":5},
+# {"id":13,"title":"Chaussures","description":13,"price":176.78,"image":"https://picsum.photos/200","gender_id":4,"category_id":4},
+# {"id":14,"title":"Pantalon","description":14,"price":41.37,"image":"https://picsum.photos/200","gender_id":2,"category_id":1},
+# {"id":15,"title":"Accessoire","description":15,"price":134.91,"image":"https://picsum.photos/200","gender_id":2,"category_id":6},
+# {"id":16,"title":"T-shirt","description":16,"price":47.93,"image":"https://picsum.photos/200","gender_id":2,"category_id":2},
+# {"id":17,"title":"Chaussures","description":17,"price":12.43,"image":"https://picsum.photos/200","gender_id":2,"category_id":4},
+# {"id":18,"title":"Pulls","description":18,"price":164.53,"image":"https://picsum.photos/200","gender_id":1,"category_id":3},
+# {"id":19,"title":"Pulls","description":19,"price":44.58,"image":"https://picsum.photos/200","gender_id":2,"category_id":3},
+# {"id":20,"title":"Pulls","description":20,"price":116.69,"image":"https://picsum.photos/200","gender_id":3,"category_id":3},
+# {"id":21,"title":"T-shirt","description":21,"price":169.22,"image":"https://picsum.photos/200","gender_id":3,"category_id":2},
+# {"id":22,"title":"Pulls","description":22,"price":145.68,"image":"https://picsum.photos/200","gender_id":1,"category_id":3},
+# {"id":23,"title":"Sous-vetements","description":23,"price":85.19,"image":"https://picsum.photos/200","gender_id":3,"category_id":5},
+# {"id":24,"title":"Accessoire","description":24,"price":185.05,"image":"https://picsum.photos/200","gender_id":4,"category_id":6},
+# {"id":25,"title":"T-shirt","description":25,"price":46.44,"image":"https://picsum.photos/200","gender_id":4,"category_id":2},
+# {"id":26,"title":"Sous-vetements","description":26,"price":98.57,"image":"https://picsum.photos/200","gender_id":2,"category_id":5},
+# {"id":27,"title":"Chaussures","description":27,"price":46.90,"image":"https://picsum.photos/200","gender_id":4,"category_id":4},
+# {"id":28,"title":"Pulls","description":28,"price":52.84,"image":"https://picsum.photos/200","gender_id":4,"category_id":3},
+# {"id":29,"title":"Pantalon","description":29,"price":91.42,"image":"https://picsum.photos/200","gender_id":4,"category_id":1},
+# {"id":30,"title":"T-shirt","description":30,"price":148.85,"image":"https://picsum.photos/200","gender_id":3,"category_id":2},
+# {"id":31,"title":"Chaussures","description":31,"price":65.60,"image":"https://picsum.photos/200","gender_id":4,"category_id":4},
+# {"id":32,"title":"Pantalon","description":32,"price":178.87,"image":"https://picsum.photos/200","gender_id":1,"category_id":1},
+# {"id":33,"title":"T-shirt","description":33,"price":18.69,"image":"https://picsum.photos/200","gender_id":2,"category_id":2},
+# {"id":34,"title":"T-shirt","description":34,"price":145.80,"image":"https://picsum.photos/200","gender_id":3,"category_id":2},
+# {"id":35,"title":"Pantalon","description":35,"price":165.30,"image":"https://picsum.photos/200","gender_id":3,"category_id":1},
+# {"id":36,"title":"T-shirt","description":36,"price":56.57,"image":"https://picsum.photos/200","gender_id":3,"category_id":2},
+# {"id":37,"title":"Pulls","description":37,"price":186.48,"image":"https://picsum.photos/200","gender_id":4,"category_id":3},
+# {"id":38,"title":"T-shirt","description":38,"price":161.41,"image":"https://picsum.photos/200","gender_id":1,"category_id":2},
+# {"id":39,"title":"Accessoire","description":39,"price":168.18,"image":"https://picsum.photos/200","gender_id":1,"category_id":6},
+# {"id":40,"title":"Accessoire","description":40,"price":60.16,"image":"https://picsum.photos/200","gender_id":1,"category_id":6},
+# {"id":41,"title":"Pantalon","description":41,"price":35.49,"image":"https://picsum.photos/200","gender_id":4,"category_id":1},
+# {"id":42,"title":"Sous-vetements","description":42,"price":147.84,"image":"https://picsum.photos/200","gender_id":3,"category_id":5},
+# {"id":43,"title":"Accessoire","description":43,"price":68.72,"image":"https://picsum.photos/200","gender_id":1,"category_id":6},
+# {"id":44,"title":"Accessoire","description":44,"price":134.79,"image":"https://picsum.photos/200","gender_id":4,"category_id":6},
+# {"id":45,"title":"Sous-vetements","description":45,"price":139.43,"image":"https://picsum.photos/200","gender_id":2,"category_id":5},
+# {"id":46,"title":"Chaussures","description":46,"price":113.88,"image":"https://picsum.photos/200","gender_id":1,"category_id":4},
+# {"id":47,"title":"Pulls","description":47,"price":127.78,"image":"https://picsum.photos/200","gender_id":2,"category_id":3},
+# {"id":48,"title":"Sous-vetements","description":48,"price":11.71,"image":"https://picsum.photos/200","gender_id":1,"category_id":5},
+# {"id":49,"title":"Chaussures","description":49,"price":136.41,"image":"https://picsum.photos/200","gender_id":2,"category_id":4},
+# {"id":50,"title":"Sous-vetements","description":50,"price":114.98,"image":"https://picsum.photos/200","gender_id":4,"category_id":5},
+# {"id":51,"title":"Accessoire","description":51,"price":43.17,"image":"https://picsum.photos/200","gender_id":3,"category_id":6},
+# {"id":52,"title":"Sous-vetements","description":52,"price":141.81,"image":"https://picsum.photos/200","gender_id":3,"category_id":5},
+# {"id":53,"title":"Chaussures","description":53,"price":46.11,"image":"https://picsum.photos/200","gender_id":2,"category_id":4},
+# {"id":54,"title":"Sous-vetements","description":54,"price":159.02,"image":"https://picsum.photos/200","gender_id":3,"category_id":5},
+# {"id":55,"title":"Pulls","description":55,"price":140.09,"image":"https://picsum.photos/200","gender_id":3,"category_id":3},
+# {"id":56,"title":"Sous-vetements","description":56,"price":85.35,"image":"https://picsum.photos/200","gender_id":4,"category_id":5},
+# {"id":57,"title":"Accessoire","description":57,"price":100.29,"image":"https://picsum.photos/200","gender_id":3,"category_id":6},
+# {"id":58,"title":"Pantalon","description":58,"price":183.98,"image":"https://picsum.photos/200","gender_id":4,"category_id":1},
+# {"id":59,"title":"T-shirt","description":59,"price":105.94,"image":"https://picsum.photos/200","gender_id":4,"category_id":2},
+# {"id":60,"title":"T-shirt","description":60,"price":190.50,"image":"https://picsum.photos/200","gender_id":2,"category_id":2},
+# {"id":61,"title":"T-shirt","description":61,"price":13.33,"image":"https://picsum.photos/200","gender_id":1,"category_id":2},
+# {"id":62,"title":"T-shirt","description":62,"price":145.08,"image":"https://picsum.photos/200","gender_id":4,"category_id":2},
+# {"id":63,"title":"Chaussures","description":63,"price":95.34,"image":"https://picsum.photos/200","gender_id":4,"category_id":4},
+# {"id":64,"title":"T-shirt","description":64,"price":19.58,"image":"https://picsum.photos/200","gender_id":4,"category_id":2},
+# {"id":65,"title":"T-shirt","description":65,"price":29.80,"image":"https://picsum.photos/200","gender_id":2,"category_id":2},
+# {"id":66,"title":"Pulls","description":66,"price":153.58,"image":"https://picsum.photos/200","gender_id":3,"category_id":3},
+# {"id":67,"title":"T-shirt","description":67,"price":144.24,"image":"https://picsum.photos/200","gender_id":2,"category_id":2},
+# {"id":68,"title":"Pantalon","description":68,"price":43.96,"image":"https://picsum.photos/200","gender_id":1,"category_id":1},
+# {"id":69,"title":"Sous-vetements","description":69,"price":145.25,"image":"https://picsum.photos/200","gender_id":1,"category_id":5},
+# {"id":70,"title":"Chaussures","description":70,"price":48.27,"image":"https://picsum.photos/200","gender_id":1,"category_id":4},
+# {"id":71,"title":"Pantalon","description":71,"price":99.01,"image":"https://picsum.photos/200","gender_id":1,"category_id":1},
+# {"id":72,"title":"Accessoire","description":72,"price":171.91,"image":"https://picsum.photos/200","gender_id":1,"category_id":6},
+# {"id":73,"title":"Pantalon","description":73,"price":193.44,"image":"https://picsum.photos/200","gender_id":3,"category_id":1},
+# {"id":74,"title":"T-shirt","description":74,"price":136.00,"image":"https://picsum.photos/200","gender_id":4,"category_id":2},
+# {"id":75,"title":"T-shirt","description":75,"price":147.88,"image":"https://picsum.photos/200","gender_id":2,"category_id":2},
+# {"id":76,"title":"Pantalon","description":76,"price":36.54,"image":"https://picsum.photos/200","gender_id":2,"category_id":1},
+# {"id":77,"title":"Accessoire","description":77,"price":177.83,"image":"https://picsum.photos/200","gender_id":2,"category_id":6},
+# {"id":78,"title":"Chaussures","description":78,"price":173.63,"image":"https://picsum.photos/200","gender_id":4,"category_id":4},
+# {"id":79,"title":"Pantalon","description":79,"price":108.79,"image":"https://picsum.photos/200","gender_id":2,"category_id":1},
+# {"id":80,"title":"Chaussures","description":80,"price":198.98,"image":"https://picsum.photos/200","gender_id":3,"category_id":4},
+# {"id":81,"title":"Pantalon","description":81,"price":162.41,"image":"https://picsum.photos/200","gender_id":1,"category_id":1},
+# {"id":82,"title":"Pulls","description":82,"price":10.05,"image":"https://picsum.photos/200","gender_id":3,"category_id":3},
+# {"id":83,"title":"Accessoire","description":83,"price":132.87,"image":"https://picsum.photos/200","gender_id":2,"category_id":6},
+# {"id":84,"title":"T-shirt","description":84,"price":146.67,"image":"https://picsum.photos/200","gender_id":4,"category_id":2},
+# {"id":85,"title":"Sous-vetements","description":85,"price":80.71,"image":"https://picsum.photos/200","gender_id":3,"category_id":5},
+# {"id":86,"title":"Sous-vetements","description":86,"price":150.23,"image":"https://picsum.photos/200","gender_id":1,"category_id":5},
+# {"id":87,"title":"Accessoire","description":87,"price":44.55,"image":"https://picsum.photos/200","gender_id":2,"category_id":6},
+# {"id":88,"title":"Pulls","description":88,"price":143.11,"image":"https://picsum.photos/200","gender_id":4,"category_id":3},
+# {"id":89,"title":"Sous-vetements","description":89,"price":92.73,"image":"https://picsum.photos/200","gender_id":3,"category_id":5},
+# {"id":90,"title":"Accessoire","description":90,"price":3.15,"image":"https://picsum.photos/200","gender_id":1,"category_id":6},
+# {"id":91,"title":"Sous-vetements","description":91,"price":30.31,"image":"https://picsum.photos/200","gender_id":3,"category_id":5},
+# {"id":92,"title":"Accessoire","description":92,"price":118.41,"image":"https://picsum.photos/200","gender_id":3,"category_id":6},
+# {"id":93,"title":"Sous-vetements","description":93,"price":141.58,"image":"https://picsum.photos/200","gender_id":1,"category_id":5},
+# {"id":94,"title":"Chaussures","description":94,"price":78.15,"image":"https://picsum.photos/200","gender_id":4,"category_id":4},
+# {"id":95,"title":"Chaussures","description":95,"price":60.73,"image":"https://picsum.photos/200","gender_id":3,"category_id":4},
+# {"id":96,"title":"Accessoire","description":96,"price":81.58,"image":"https://picsum.photos/200","gender_id":2,"category_id":6},
+# {"id":97,"title":"Pantalon","description":97,"price":37.16,"image":"https://picsum.photos/200","gender_id":1,"category_id":1},
+# {"id":98,"title":"Chaussures","description":98,"price":189.31,"image":"https://picsum.photos/200","gender_id":4,"category_id":4},
+# {"id":99,"title":"T-shirt","description":99,"price":69.07,"image":"https://picsum.photos/200","gender_id":4,"category_id":2},
+# {"id":100,"title":"Pulls","description":100,"price":65.49,"image":"https://picsum.photos/200","gender_id":3,"category_id":3}
+# ]
+
+
+# PATCH http://localhost:5000/contact
+# Content-Type: application/json
+
+# {
+#     "where":"deleted = 0",
+#     "email":"guigui@gmail.com",
+#     "firstname":"lenain"
+# }
+PUT http://localhost:5000/auth
 Content-Type: application/json
 
 {
-    "email":"lenain@gmail.com",
-    "firstname":"billy"
+    "login":"guillaume@gmail.com",
+    "password":"guillaume"
 }

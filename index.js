@@ -1,23 +1,31 @@
+require("./api/helpers/string.helper");
+
+
 const express = require("express");
+const app = express();
+app.use(express.json());
+
+const cookieParser= require("cookie-parser");
+app.use(cookieParser());
+
 const routers = require('./api/routers');
 
-
-console.log('routers')
-
-const app = express();
-
 const cors = require("cors");
+const { app_user } = require("./api/services");
+
 const corsOption ={
     origin :["http://localhost:3000"]
 };
 app.use(cors(corsOption));
 
-app.use(express.json());
-
 for(const route in routers){
     app.use(`/${route}`, new routers[route]().router);
-}
+};
 
+const config = require("./api/configs")("app");
+app.listen(config.PORT, ()=>{
+    console.log(`Server is running on port ${config.PORT}.`);
+});
 app.use('*', (req,res)=> res.send(false));
 
 const PORT =5000;
