@@ -13,7 +13,8 @@ const routers = require('./api/routers');
 const cors = require("cors");
 
 const corsOption ={
-    origin :["http://localhost:3000"]
+    origin :["http://localhost:3000"],
+    credentials:true
 };
 app.use(cors(corsOption));
 

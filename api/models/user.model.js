@@ -1,17 +1,18 @@
 // import { BaseModel } from "./baseModel.model.js";
 const BaseModel = require("./baseModel.model");
-class Gender extends BaseModel{
+
+class User extends BaseModel{
 
     constructor(props){
         super(props);
         this.assign(props);
-        this.hasMany("Product");
+        this.hasOne("Customer");
     }
 
-    title = "";
-    description = "";
-    image = "";
+    login = "";
+    password = "";
+    is_active = false;
+    customer_id = 0;
 
 }
-
-module.exports =Gender;
+module.exports =User;

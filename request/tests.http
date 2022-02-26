@@ -116,10 +116,5 @@
 #     "email":"guigui@gmail.com",
 #     "firstname":"lenain"
 # }
-POST http://localhost:5000/auth/register
-Content-Type: application/json
+GET  http://localhost:5000/product
 
-{
-    "email":"guillaume@gmail.com",
-    "password":"guillaume"
-}

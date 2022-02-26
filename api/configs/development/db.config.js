@@ -3,7 +3,7 @@ const config = {
     // PORT:"3000",
     USER:"root",
     PASS:"root",
-    NAME:"shop_data"
+    NAME:"lulu_crea"
 
 }
 module.exports = config;

@@ -83,11 +83,11 @@ class BaseService {
         else {
             for (let key in fields) {
                 columns += key + ",";
-                if(isNaN(fields[rows][key])){
-                    values+=`'${fields[rows][key].replace("'","''")}',`;
+                if(isNaN(fields[key])){
+                    values+=`'${fields[key].replace("'","''")}',`;
                 }
                 else{
-                    values+=`'${fields[rows][key]}',`;
+                    values+=`'${fields[key]}',`;
                 }
             }
 
@@ -101,39 +101,6 @@ class BaseService {
 
     }
 
-    // insertOneOrMany = async (params) => {
-    //     if(Array.isArray(params)){//INSERT MANY ROWS
-
-    //     }
-    //     else{//INSERT ONE ROW
-    //         const columns = Object.keys(params).join(',');
-    //         let values = Object.values(params);
-    //         values = values.map(val => {
-    //             return val = ('"' + val.replace('"','\"') + '"')
-    //         });// `'${val.replace("'","\'")}'`);
-    //         values = values.join(',')
-    //         let sql = `INSERT INTO ${this.table} (${columns}) VALUES (${values})`;
-    //         const result = await BaseService.executeQuery(sql);
-    //         console.log(result);
-    //         let row = null;
-    //         if(result.affectedRows === 1){
-    //             row = await this.selectOne(result.insertId);
-    //         }
-    //         return row;
-    //     }
-
-    // }
-
-    // updateOne = async (id, fields) => {
-    //     let set = "";
-    //     for (let key in fields) {
-    //         set += `${key}='${fields[key]}',`;
-    //     }
-    //     set = set.substring(0, set.length - 1);
-    //     const sql = `UPDATE ${this.table} SET ${set} WHERE id=${id}`;
-    //     const row = await BaseService.#query(sql);
-    //     return row;
-    // }
     update =async (fields)=>{
         let where = params.where?.replaceAll('&&','AND').replaceAll('||','OR') || '1';
         delete fields.where;
