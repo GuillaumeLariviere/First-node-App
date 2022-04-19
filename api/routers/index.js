@@ -1,8 +1,21 @@
 exports.auth = require('./auth.router');
+exports.app_user = require('./app_user.router');
 exports.category = require('./category.router');
-
+exports.command_product = require('./command_product.router');
+exports.command = require('./command.router');
+exports.customer = require('./customer.router');
+exports.role = require('./role.router');
+exports.message = require('./message.router');
+exports.color = require('./color.router');
+exports.textile = require('./textile.router');
+exports.textile_color=require('./textile_color.router');
+exports.textile_product_reference=require('./textile_product_reference');
+exports.motif = require ('./motif.router');
+exports.motif_color = require('./motif_color.router');
+exports.motif_product_reference =require('./motif_product_reference.router');
+exports.police = require('./police.router');
+exports.police_product_reference = require('./police_product_reference.router');
+exports.product_image = require('./product_image.router');
+exports.product_product_reference = require('./product_product_reference.router');
 exports.product = require('./product.router');
-
-exports.users = require('./users.router');
-exports.productReference =require('./product_reference.router')
-
+exports.product_reference=require('./product_reference.router');
