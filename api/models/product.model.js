@@ -6,16 +6,20 @@ class Product extends BaseModel{
     constructor(props){
         super(props);
         this.assign(props);
-        this.hasOne("Category")
-        .hasManyThrough("Command","Command_product");
+        this.hasOne("Police");
+        this.hasOne("Color");
+        this.hasOne("Textile");
+        this.hasOne("Motif")
+        .hasManyThrough("Command","Command_product")
+        .hasManyThrough("Product_reference","Product_product_reference");
     }
 
-    title = "";
-    price = 0;
-    description = "";
-    image = "";
-    category_id = 0;
-    gender_id = 0;
+    text = "";
+    // price = 0; a ajouter
+    police_id=0;
+    motif_id=0;
+    textile_id=0;
+    color_id=0;
 
 }
 module.exports = Product;

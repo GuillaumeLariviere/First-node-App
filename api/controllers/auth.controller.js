@@ -1,6 +1,6 @@
 const BaseController = require("./base.controller");
 const MailerService = require('../services/mailer.service');
-const UserServiceClass = require('../services/users.service');
+const UserService = require('../services/users.service');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const appConfig = require("../configs")("app");
@@ -9,7 +9,7 @@ const appConfig = require("../configs")("app");
 class AuthController extends BaseController{
 
     getUser = async(email) =>{
-        const service = new UserServiceClass();
+        const service = new UserService();
         const users = await service.getAll({where:`email = '${email}' && active='1'`});
         return users.length === 1 ? users.pop(): null;
     }
@@ -42,7 +42,7 @@ class AuthController extends BaseController{
             
             const html = 
             `<b>Confirmer votre inscription</b>
-                <a href ="http://localhost:3000/accountscreen?t=${encodeURIComponent(token)}" target ="_blank"> Confirmer </a>`;
+                <a href ="http://localhost:3000/accountValidate?t=${encodeURIComponent(token)}" target ="_blank"> Confirmer </a>`;
             
            await MailerService.send({to: req.body.email, subject:"Confirmer votre inscription", html});
             return true;
@@ -68,9 +68,9 @@ class AuthController extends BaseController{
             return {data:{completed:false, message:"Une erreur est survenue ...."}};
         }
         if(payload){
-            const service = new UserServiceClass();
+            const service = new UserService();
             const password = (await bcrypt.hash(payload.password,10)).replace(appConfig.HASH_PREFIX,'');
-            const user = await service.insertOneOrMany({login:payload.email, password, user_role_id:payload.role});
+            const user = await service.insertOneOrMany({email:payload.email, password, role:payload.role});//modif possible
             return user ?
                 {data:{completed:true, message:"Bienvenu sur shop_online, votre compte a bien etais activé, vous pouvez vous connecter"}} :
                 {data:{completed:false, message:"Une erreur est survenue ...."}} ;

@@ -1,18 +1,16 @@
 // import { BaseModel } from "./baseModel.model.js";
 const BaseModel = require("./baseModel.model");
 
-class User extends BaseModel{
+class Message extends BaseModel{
 
     constructor(props){
         super(props);
         this.assign(props);
-        this.hasOne("Customer");
     }
 
-    login = "";
-    password = "";
-    is_active = false;
-    customer_id = 0;
+    user_email = "";
+    message = "";
+
 
 }
-module.exports =User;
+module.exports =Message;

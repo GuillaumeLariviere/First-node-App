@@ -1,16 +1,15 @@
 // import { BaseModel } from "./baseModel.model.js";
 const BaseModel = require("./baseModel.model");
-class Command_product extends BaseModel{
+
+class Police extends BaseModel{
 
     constructor(props){
         super(props);
         this.assign(props);
-        delete this.id;
+        this.hasMany("Product")
+        .hasManyThrough("Product_reference","Police_product_reference");
     }
 
-    // quantity = 0; a ajouter
-    product_id = 0;
-    command_id = 0;
-
+    name = "";
 }
-module.exports = Command_product;
+module.exports =Police;

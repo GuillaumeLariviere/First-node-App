@@ -1,6 +1,6 @@
-// import { BaseModel } from "./baseModel.model.js";
 const BaseModel = require("./baseModel.model");
-class Command_product extends BaseModel{
+
+class Motif_color extends BaseModel{
 
     constructor(props){
         super(props);
@@ -9,8 +9,8 @@ class Command_product extends BaseModel{
     }
 
     // quantity = 0; a ajouter
-    product_id = 0;
-    command_id = 0;
+    color_id = 0;
+    motif_id = 0;
 
 }
-module.exports = Command_product;
+module.exports = Motif_color;

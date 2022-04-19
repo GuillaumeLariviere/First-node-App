@@ -6,12 +6,11 @@ class Category extends BaseModel{
     constructor(props){
         super(props);
         this.assign(props);
-        this.hasMany("Product");
+        this.hasMany("Product_reference");
     }
 
-    title = "";
-    description = "";
-    image = "";
-
+    name = "";
+    img_path = "";
+    
 }
 module.exports = Category;

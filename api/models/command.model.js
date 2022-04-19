@@ -10,8 +10,8 @@ class Command extends BaseModel{
         this.hasManyThrough("Product", "Command_product");
     }
 
-    numero = "";
-    validation_date = new Date();
+    numero_command = 0;
+    // validation_date = new Date(); a ajouter
     customer_id = 0;
 
 }

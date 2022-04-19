@@ -1,6 +1,5 @@
-// import { BaseModel } from "./baseModel.model.js";
 const BaseModel = require("./baseModel.model");
-class Command_product extends BaseModel{
+class Police_product_reference extends BaseModel{
 
     constructor(props){
         super(props);
@@ -9,8 +8,8 @@ class Command_product extends BaseModel{
     }
 
     // quantity = 0; a ajouter
-    product_id = 0;
-    command_id = 0;
+    police_id = 0;
+    product_reference_id = 0;
 
 }
-module.exports = Command_product;
+module.exports = Police_product_reference;

@@ -1,16 +1,14 @@
 // import { BaseModel } from "./baseModel.model.js";
 const BaseModel = require("./baseModel.model");
-class Command_product extends BaseModel{
+
+class Role extends BaseModel{
 
     constructor(props){
         super(props);
         this.assign(props);
-        delete this.id;
+        this.hasMany("App_user")
     }
 
-    // quantity = 0; a ajouter
-    product_id = 0;
-    command_id = 0;
-
+    name = "";
 }
-module.exports = Command_product;
+module.exports =Role;

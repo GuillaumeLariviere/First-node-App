@@ -1,6 +1,7 @@
 class BaseModel{
 
     id = 0;
+    deleted = 0;
     
     assign = (props) => {
         for (let key in props) {

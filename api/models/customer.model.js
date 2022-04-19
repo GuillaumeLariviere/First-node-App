@@ -7,11 +7,14 @@ class Customer extends BaseModel{
         super(props);
         this.assign(props);
         this.hasMany("Command");
-        this.hasOneToo("Appuser");
+        this.hasOne("App_user");
     }
 
-    fullname = "";
-    email = "";
+    name = "";
+    last_name = "";
+    adresse = "";
+    phone = "";
+    app_user_id = "";
 
 }
 module.exports = Customer;
