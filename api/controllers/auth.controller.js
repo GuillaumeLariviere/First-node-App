@@ -1,6 +1,6 @@
 const BaseController = require("./base.controller");
 const MailerService = require('../services/mailer.service');
-const UserService = require('../services/users.service');
+const UserService = require('../services/app_user.service');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const appConfig = require("../configs")("app");
