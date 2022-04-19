@@ -1,7 +1,7 @@
 const DbRouter = require('./db.router');
 
-class ProductReferenceRouter extends DbRouter{
+class Product_referenceRouter extends DbRouter{
 
 }
 
-module.exports = ProductReferenceRouter;
+module.exports = Product_referenceRouter;
