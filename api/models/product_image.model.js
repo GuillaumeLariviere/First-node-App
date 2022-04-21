@@ -9,5 +9,6 @@ class Product_image extends BaseModel{
     }
 
     img_path = "";
+    product_reference_id = "";
 }
 module.exports = Product_image;
