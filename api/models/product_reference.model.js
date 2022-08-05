@@ -6,10 +6,11 @@ class Product_reference extends BaseModel{
         super(props);
         this.assign(props);
         this.hasOne("Category");
-        this.hasMany("Product_image")
-        .hasManyThrough("Product","Product_product_reference")
+        this.hasMany("Product_image");
+        this.hasMany("Product")
         .hasManyThrough("Textile","Textile_product_reference")
         .hasManyThrough("Motif","Motif_product_reference")
+        .hasManyThrough("Color","Color_product_reference")
         .hasManyThrough("Police","Police_product_reference");
     }
 

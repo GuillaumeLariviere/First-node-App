@@ -21,14 +21,62 @@ class DbRouter extends BaseRouter{
 
         // GET / talbe get ALL
         this.router.get('/', async (req, res) => {
-            const data = await this.controller.getAll();
-            res.send(data);
+            if(Object.keys(req.query).length > 0){
+                Object.keys(req.query).map(async (params)=>{
+                    if(params=="where"){
+                        const json = JSON.stringify(req.query)
+                        const strJson = json.replace(/[{-}]/g, '')
+                        const data = await this.controller.getAll({where:strJson.replace(":","=")});
+                        res.send(data);
+                    }
+                    else if(params=="with"){
+                        const relations = Object.values(req.query).join()?.split(',');
+                        const data = await this.controller.getAllWithRelation({with:relations});
+                        res.send(data);
+                    }  
+                })
+            }
+            else{
+                const data = await this.controller.getAll();
+                res.send(data);
+            }
+            
         })
+        // this.router.get('/productOption/:id', async (req, res)=>{
+        //     // const data = await this.controller.getAllOption({where:req.params.id});
+        //     const controllersNames = Object.values(req.query);
+        //     controllersNames.map( async (controllerName)=>{
+        //         const key = controllerName.toLowerCase();
+        //         controllerName = new this.controller(controllerName);
+        //         return await controllerName.getAll({where:`${key}_id ="${req.params.id}"`})
+        //     })
+        //     const data = "fetch is ok";
+        //     res.send(data);
+        // })
         
         // GET /table/:id getOne
         this.router.get('/:id',async (req, res) => {
-            const data = await this.controller.getOne(req.params.id);
-            res.send(data);
+            if(Object.keys(req.query).length > 0){
+                Object.keys(req.query).map(async (params)=>{
+                    if(params=="where"){
+                        const json = JSON.stringify(req.query)
+                        const strJson = json.replace(/[{-}]/g, '')
+                        const data = await this.controller.getOne({where:strJson.replace(":","=")});
+                        res.send(data);
+                    }
+                    else if(params=="with"){
+                        const relations = Object.values(req.query).join()?.split(',');
+                        const data = await this.controller.getOneWithRelation({with:relations},req.params.id);
+                        res.send(data);
+                    }  
+                })
+            }
+            else{
+                const data = await this.controller.getOne(req.params.id);
+                res.send(data);
+            }
+            
+
         })
 
         

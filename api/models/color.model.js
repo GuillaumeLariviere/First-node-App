@@ -7,7 +7,8 @@ class Color extends BaseModel{
         this.assign(props);
         this.hasMany("Product")
         .hasManyThrough("Motif","Motif_color")
-        .hasManyThrough("Textile","Textile_color");
+        .hasManyThrough("Textile","Textile_color")
+        .hasManyThrough("Product_reference","Color_product_reference");
     }
 
     name = "";

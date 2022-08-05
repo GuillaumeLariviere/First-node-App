@@ -13,15 +13,32 @@ class DbController extends BaseController {
 
     initializeAction=()=>{
         this.getAll = async (params) => {
-
             const result = await this.service.getAll(params);
             return result;
     
+        }
+        this.getAllWithRelation =async(params)=>{
+
+                params.with.map((relation)=>{
+                    this.service.with(relation);
+                })
+            const result = await this.service.getAll();
+            return result;
+       
         }
     
         this.getOne = async (id) => {
             const result = await this.service.getOne(id);
             return result;
+        }
+
+        this.getOneWithRelation = async(params,id)=>{
+            params.with.map(async(relation)=>{
+                this.service.with(relation);
+            })
+            const result = await this.service.getOne(id);
+            return result;
+            // a tester
         }
         this.insertOneOrMany = async (fields) =>{
             const result = await this.service.insertOneOrMany(fields);

@@ -1,6 +1,6 @@
 const BaseModel = require("./baseModel.model");
 
-class Product_product_reference extends BaseModel{
+class Color_product_reference extends BaseModel{
 
     constructor(props){
         super(props);
@@ -9,8 +9,8 @@ class Product_product_reference extends BaseModel{
     }
 
     // quantity = 0; a ajouter
-    product_id = 0;
+    color_id = 0;
     product_reference_id = 0;
 
 }
-module.exports = Product_product_reference;
+module.exports = Color_product_reference;

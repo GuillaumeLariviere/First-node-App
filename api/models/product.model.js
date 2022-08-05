@@ -9,9 +9,10 @@ class Product extends BaseModel{
         this.hasOne("Police");
         this.hasOne("Color");
         this.hasOne("Textile");
-        this.hasOne("Motif")
-        .hasManyThrough("Command","Command_product")
-        .hasManyThrough("Product_reference","Product_product_reference");
+        this.hasOne("Motif");
+        this.hasOne("Product_reference")
+        .hasManyThrough("Command","Command_product");
+     
     }
 
     text = "";
@@ -20,6 +21,7 @@ class Product extends BaseModel{
     motif_id=0;
     textile_id=0;
     color_id=0;
+    product_reference_id=0;
 
 }
 module.exports = Product;

@@ -15,6 +15,6 @@ exports.motif_product_reference =require('./motif_product_reference.model');
 exports.police = require('./police.model');
 exports.police_product_reference = require('./police_product_reference.model');
 exports.product_image = require('./product_image.model');
-exports.product_product_reference = require('./product_product_reference.model');
+exports.color_product_reference = require('./color_product_reference.model');
 exports.product = require('./product.model');
 exports.product_reference=require('./product_reference.model');
