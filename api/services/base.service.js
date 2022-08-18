@@ -64,7 +64,8 @@ class BaseService {
             return models;
         }
         for(const relation of this.relations){
-            let item = models.last();
+            let modelsList = [...models]
+            let item = modelsList.pop();
             if(item.hasOneTooRelations[relation]){
                 const {fk, name} = item.hasOneTooRelations[relation];
                 let Service = require(`../services/${relation.unCamelize()}.service`);
@@ -143,8 +144,7 @@ class BaseService {
                     item[name] = models.length == 1 ? models.pop() : null;
                     //debugger;
                 }
-    
-                
+        
                 if(item.hasOneRelations[relation]){
                     const {fk, name} = item.hasOneRelations[relation];
                     let Service =  require(`../services/${relation.unCamelize()}.service`);

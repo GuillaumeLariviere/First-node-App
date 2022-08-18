@@ -23,21 +23,23 @@ class AuthController extends BaseController{
             const ToverifPass = req.body.password;
             const result = await bcrypt.compare(ToverifPass,`${appConfig.HASH_PREFIX + userPassword}`);
             if(result){
-                const payload = {email: user.email, role:user.role,};
+                const payload = {email: user.email, role:user.role_id,};
                 const token = jwt.sign(payload, appConfig.JWT_SECRET, { expiresIn: '1d'});
-                return {data:{completed:true, role:user.role ,message:`Bonjour ${user.email} !`,cookie:token,...payload, id:user.id}, cookie:token};
+                return {data:{completed:true, role:user.role_id ,message:`Bonjour ${user.email} !`,cookie:token,...payload, id:user.id}, cookie:token};
             }
         }
         return {data:{completed:false, message:"Identifiant ou mot de passe incorrect !"}};
     }
 
     register = async(req) => {
+        console.log("lulu")
         if(req.method !== 'POST') return {status:405};
 
         const user = await this.getUser(req.body.email);
-
+        console.log("teste 01")
         if(!user){
-            const payload ={email:req.body.email,role:1 , password:req.body.password};
+            console.log("teste")
+            const payload ={email:req.body.email,role_id:2 , password:req.body.password};
             const token =jwt.sign(payload, appConfig.JWT_SECRET, { expiresIn: '1d' });
             
             const html = 
@@ -51,7 +53,7 @@ class AuthController extends BaseController{
     }
 
     crypt = async (req) =>{
-        const payload ={email:req.body.email,role:1 , password:req.body.password};
+        const payload ={email:req.body.email,role_id:2 , password:req.body.password};
         const password = (await bcrypt.hash(payload.password,10)).replace(appConfig.HASH_PREFIX,'');
         return {data:{password:password}};
     }
@@ -70,7 +72,7 @@ class AuthController extends BaseController{
         if(payload){
             const service = new UserService();
             const password = (await bcrypt.hash(payload.password,10)).replace(appConfig.HASH_PREFIX,'');
-            const user = await service.insertOneOrMany({email:payload.email, password, role:payload.role});//modif possible
+            const user = await service.insertOneOrMany({email:payload.email, password, role_id:payload.role_id, active:1});//modif possible
             return user ?
                 {data:{completed:true, message:"Bienvenu sur shop_online, votre compte a bien etais activé, vous pouvez vous connecter"}} :
                 {data:{completed:false, message:"Une erreur est survenue ...."}} ;
@@ -87,7 +89,7 @@ class AuthController extends BaseController{
                 return {data:{result:true, email:result.email, role:result.role}};
             }
         }
-        return {data:{result:false, role:0}};
+        return {data:{result:false, role:1}};
     }
    
 

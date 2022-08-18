@@ -30,17 +30,25 @@ class MailerService {
         pass: senderAccount.pass,
       },
     });
+    
+    let final = await MailerService.wrapedSendMail(transporter,mailParams);
+    console.log("salut")
+    return final;
+  };
 
-    await transporter.sendMail(mailParams, (err, info) => {
-        if(err){
-            console.log('Error occurred. ' + err.message);
-            return false;
-        }
-        console.log("Email sent : ", info , "\nView sent mail at : " , nodemailer.getTestMessageUrl(info));
-        return true;
+  static wrapedSendMail = async (transporter,mailParams)=>{
+    return new Promise((resolve,reject)=>{
+        transporter.sendMail(mailParams, (err, info) => {
+          if(err){
+              console.log('Error occurred. ' + err.message);
+              resolve(false);
+          }
+          console.log("Email sent : ", info , "\nView sent mail at : " , nodemailer.getTestMessageUrl(info));
+          resolve(true) ;
+      });
     });
   };
-  
+
 }
 
 module.exports = MailerService;

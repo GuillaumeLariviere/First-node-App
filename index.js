@@ -1,6 +1,6 @@
 require("./api/helpers/string.helper");
 require('./api/helpers/extenders');
-require('./api/helpers/extenders.obfuscated');
+
 
 
 const express = require("express");
