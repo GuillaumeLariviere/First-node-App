@@ -1,4 +1,6 @@
+
 const BaseModel = require("./baseModel.model");
+
 class Textile_color extends BaseModel{
 
     constructor(props){
@@ -10,6 +12,5 @@ class Textile_color extends BaseModel{
     // quantity = 0; a ajouter
     color_id = 0;
     textile_id = 0;
-
 }
-module.exports = Textile_color;
+module.exports =Textile_color;

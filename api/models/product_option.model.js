@@ -1,15 +1,16 @@
-
 const BaseModel = require("./baseModel.model");
 
-class Police extends BaseModel{
+class Product_option extends BaseModel{
 
     constructor(props){
         super(props);
         this.assign(props);
-        this.hasManyThrough("Product","Police_product")
+        this.hasOne("Product")
     }
 
     name = "";
-    img_path="";
+    price = 0.00;
+    product_id = 0;
+
 }
-module.exports =Police;
+module.exports = Product_option;

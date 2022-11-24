@@ -1,6 +1,7 @@
+
 const BaseModel = require("./baseModel.model");
 
-class Motif_product_reference extends BaseModel{
+class Police_color extends BaseModel{
 
     constructor(props){
         super(props);
@@ -9,8 +10,7 @@ class Motif_product_reference extends BaseModel{
     }
 
     // quantity = 0; a ajouter
-    motif_id = 0;
-    product_reference_id = 0;
-
+    color_id = 0;
+    police_id = 0;
 }
-module.exports = Motif_product_reference;
+module.exports =Police_color;

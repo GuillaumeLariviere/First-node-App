@@ -1,7 +1,7 @@
 const DbController = require('./db.controller');
 
-class Textile_product_referenceController extends DbController{
+class Textile_productController extends DbController{
     
 }
 
-module.exports = Textile_product_referenceController;
+module.exports = Textile_productController;

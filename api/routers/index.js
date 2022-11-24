@@ -1,6 +1,5 @@
 exports.auth = require('./auth.router');
 exports.app_user = require('./app_user.router');
-exports.category = require('./category.router');
 exports.command_product = require('./command_product.router');
 exports.command = require('./command.router');
 exports.customer = require('./customer.router');
@@ -9,13 +8,13 @@ exports.message = require('./message.router');
 exports.color = require('./color.router');
 exports.textile = require('./textile.router');
 exports.textile_color=require('./textile_color.router');
-exports.textile_product_reference=require('./textile_product_reference.router');
+exports.textile_product=require('./textile_product.router');
 exports.motif = require ('./motif.router');
-exports.motif_color = require('./motif_color.router');
-exports.motif_product_reference =require('./motif_product_reference.router');
+exports.motif_product =require('./motif_product.router');
 exports.police = require('./police.router');
-exports.police_product_reference = require('./police_product_reference.router');
+exports.police_product = require('./police_product.router');
+exports.police_color = require('./police_color.router');
 exports.product_image = require('./product_image.router');
-exports.color_product_reference = require('./color_product_reference.router');
+exports.product_option = require('./product_option.router');
 exports.product = require('./product.router');
-exports.product_reference=require('./product_reference.router');
+

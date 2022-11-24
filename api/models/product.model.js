@@ -1,4 +1,3 @@
-// import { BaseModel } from "./baseModel.model.js";
 const BaseModel = require("./baseModel.model");
 
 class Product extends BaseModel{
@@ -6,22 +5,16 @@ class Product extends BaseModel{
     constructor(props){
         super(props);
         this.assign(props);
-        this.hasOne("Police");
-        this.hasOne("Color");
-        this.hasOne("Textile");
-        this.hasOne("Motif");
-        this.hasOne("Product_reference")
-        .hasManyThrough("Command","Command_product");
-     
+        this.hasMany("Product_option")
+        .hasMany("Product_image")
+        .hasManyThrough("Police","Police_product")
+        .hasManyThrough("Motif","Motif_product")
+        .hasManyThrough("Textile","Textile_product")
+        .hasManyThrough("Command","Command_product")
     }
-
-    text = "";
-    // price = 0; a ajouter
-    police_id=0;
-    motif_id=0;
-    textile_id=0;
-    color_id=0;
-    product_reference_id=0;
+    // text ="";
+    name = "";
+    price = 0.00;
 
 }
 module.exports = Product;
